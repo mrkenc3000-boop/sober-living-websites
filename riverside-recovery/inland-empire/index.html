@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inland Empire Sober Living - Recovery Across Riverside & San Bernardino</title>
+    <meta name="description" content="Sober living homes serving the entire Inland Empire region. Multiple locations in Riverside and San Bernardino counties.">
+    <link rel="stylesheet" href="styles.css">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "[schema.org](https://schema.org)",
+        "@type": "Organization",
+        "name": "Inland Empire Sober Living",
+        "url": "[inland-empire.sober-living-websites.mrkenc3000.workers.dev](https://inland-empire.sober-living-websites.mrkenc3000.workers.dev)",
+        "sameAs": ["[sober-living-websites.mrkenc3000.workers.dev](https://sober-living-websites.mrkenc3000.workers.dev)"],
+        "areaServed": ["Riverside County", "San Bernardino County"],
+        "serviceType": "Sober Living Home"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: #34495e;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-brand h1 {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #3498db;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('[images.unsplash.com](https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070)') center/cover;
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .contact-form h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e6ed;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .contact-form button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #c0392b;
+        }
+
+        .map-section {
+            padding: 4rem 2rem;
+            background: #ecf0f1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .map-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .service-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .area {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-areas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    
+    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Inland Empire Sober Living</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Recovery Across the Inland Empire</h1>
+            <p>Serving Riverside, San Bernardino & Surrounding Communities with Multiple Sober Living Locations</p>
+            
+            <div class="contact-form">
+                <h2>Get Immediate Help - Available 24/7</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option>Riverside Location</option>
+                            <option>San Bernardino Location</option>
+                            <option>Redlands Location</option>
+                            <option>Other Area</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Brief description of your situation..." rows="3"></textarea>
+                    </div>
+                    <button type="submit">Speak with Our Team Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2>Serving the Entire Inland Empire</h2>
+            <div class="service-areas">
+                <div class="area">Riverside County</div>
+                <div class="area">San Bernardino County</div>
+                <div class="area">Redlands</div>
+                <div class="area">Fontana</div>
+                <div class="area">Ontario</div>
+                <div class="area">Moreno Valley</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you! Our team will call you immediately.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
