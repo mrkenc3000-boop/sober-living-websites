@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sober-living-websites",
+  "compatibility_date": "2026-07-25",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "riverside-recovery"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
