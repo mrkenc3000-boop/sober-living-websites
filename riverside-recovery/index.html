@@ -171,6 +171,46 @@
             flex-wrap: wrap;
         }
 
+        .cta-dropdown { position: relative; }
+
+        .locations-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 0.6rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.28);
+            padding: 0.5rem;
+            min-width: 220px;
+            z-index: 30;
+            text-align: left;
+        }
+
+        .locations-menu.open { display: block; }
+
+        .locations-menu-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            padding: 0.5rem 0.8rem 0.3rem;
+        }
+
+        .locations-menu a {
+            display: block;
+            padding: 0.65rem 0.8rem;
+            border-radius: 6px;
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .locations-menu a:hover { background: var(--bg-light); color: var(--teal-dark); }
+
         .btn {
             display: inline-block;
             padding: 0.85rem 1.8rem;
@@ -267,27 +307,16 @@
 
         .find-card p { color: #3a5348; font-size: 0.95rem; margin-bottom: 1.25rem; }
 
-        .find-card .mini-check {
-            background: rgba(255,255,255,0.75);
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 600;
-            color: var(--teal-dark);
-            font-size: 0.95rem;
-        }
-
         .badges {
             display: flex;
-            gap: 0.75rem;
+            justify-content: center;
+            gap: 1rem;
             margin-top: 1.75rem;
             flex-wrap: wrap;
         }
 
         .badge {
-            width: 58px; height: 58px;
+            width: 82px; height: 82px;
             border-radius: 50%;
             background: var(--white);
             border: 2px solid var(--teal-soft);
@@ -295,12 +324,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 0.5rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--teal-dark);
             text-align: center;
-            line-height: 1.2;
-            padding: 4px;
+            line-height: 1.25;
+            padding: 6px;
         }
 
         .badge svg { width: 20px; height: 20px; margin-bottom: 2px; }
@@ -595,10 +624,10 @@
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#availability">Admissions</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="tel:+15053696404" class="btn-call">Call Now</a></li>
+                <li><a href="mailto:mrkenc3000@gmail.com">Contact</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="tel:+15053696404" class="btn-call" id="callNowBtn">Call Now</a></li>
             </ul>
         </div>
     </nav>
@@ -609,7 +638,15 @@
             <h1>Begin Your Recovery Journey Today</h1>
             <p>Safe, structured sober living — with 24/7 support and a community that truly cares.</p>
             <div class="hero-cta">
-                <a href="#availability" class="btn btn-primary">Find Your Place Today</a>
+                <div class="cta-dropdown">
+                    <a href="#availability" class="btn btn-primary" id="findPlaceBtn" aria-haspopup="true" aria-expanded="false" aria-controls="locationsMenu">Find Your Place Today</a>
+                    <div class="locations-menu" id="locationsMenu" role="menu">
+                        <div class="locations-menu-label">Available Locations</div>
+                        <a href="#availability" role="menuitem">Riverside Location</a>
+                        <a href="#availability" role="menuitem">San Bernardino Location</a>
+                        <a href="#availability" role="menuitem">Redlands Location</a>
+                    </div>
+                </div>
                 <a href="#programs" class="btn btn-outline">Learn More</a>
             </div>
         </div>
@@ -630,8 +667,7 @@
                 <div class="eyebrow">Immediate Availability</div>
                 <div class="find-card">
                     <h2>Find Your Place Today</h2>
-                    <p>Beds are available now. Reach out and a member of our team will respond the same day — no waitlists, no judgment.</p>
-                    <div class="mini-check">&#10003;&nbsp; I need immediate placement</div>
+                    <p>Beds are available now. Reach out and a member of our team will respond the same day — no red tape, no judgment.</p>
                 </div>
                 <div class="badges" aria-hidden="true">
                     <div class="badge">24/7<br>MONITORING</div>
@@ -658,6 +694,7 @@
                     <div class="checks">
                         <label><input type="checkbox" name="immediate" checked> I need immediate placement</label>
                         <label><input type="checkbox" name="referral"> Family member referral</label>
+                        <label><input type="checkbox" name="providerReferral"> Provider referral</label>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-submit">Submit</button>
@@ -677,11 +714,6 @@
         <div class="why-inner">
             <div class="eyebrow">Why Quality Housing</div>
             <div class="why-grid">
-                <div class="why-item">
-                    <div class="icon">&#128337;</div>
-                    <h3>24/7 Support</h3>
-                    <p>On-site monitoring around the clock.</p>
-                </div>
                 <div class="why-item why-item-resources">
                     <button type="button" class="icon resources-trigger" id="resourcesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="resourcesMenu">&#129517;</button>
                     <h3>Resources</h3>
@@ -693,14 +725,19 @@
                     </div>
                 </div>
                 <div class="why-item">
+                    <div class="icon">&#129309;</div>
+                    <h3>Community First</h3>
+                    <p>Peer support in the heart of Riverside.</p>
+                </div>
+                <div class="why-item">
                     <div class="icon">&#127793;</div>
                     <h3>Structured Living</h3>
                     <p>Accountability, house meetings, and life skills.</p>
                 </div>
                 <div class="why-item">
-                    <div class="icon">&#129309;</div>
-                    <h3>Community First</h3>
-                    <p>Peer support in the heart of Riverside.</p>
+                    <div class="icon">&#128337;</div>
+                    <h3>24/7 Support</h3>
+                    <p>On-site monitoring around the clock.</p>
                 </div>
             </div>
         </div>
@@ -736,9 +773,9 @@
             <div>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
-                <a href="#contact">Contact</a>
+                <a href="mailto:mrkenc3000@gmail.com">Contact</a>
             </div>
-            <div>&copy; 2026 Quality Housing &middot; Riverside, CA</div>
+            <div>&copy; 2026 Quality Housing</div>
         </div>
     </footer>
 
@@ -753,6 +790,28 @@
         links.querySelectorAll('a').forEach(function (a) {
             a.addEventListener('click', function () { links.classList.remove('open'); });
         });
+
+        // Call Now: dial directly on mobile/touch devices; reveal (then copy) the number on desktop
+        var callBtn = document.getElementById('callNowBtn');
+        var isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+        if (callBtn && !isTouchDevice) {
+            var phoneDisplay = '(505) 369-6404';
+            var revealed = false;
+
+            callBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (!revealed) {
+                    callBtn.textContent = phoneDisplay;
+                    revealed = true;
+                } else if (navigator.clipboard) {
+                    navigator.clipboard.writeText('5053696404').then(function () {
+                        callBtn.textContent = 'Copied!';
+                        setTimeout(function () { callBtn.textContent = phoneDisplay; }, 1200);
+                    });
+                }
+            });
+        }
 
         // Resources tile: click to open/close the links dropdown
         var resourcesTrigger = document.getElementById('resourcesTrigger');
@@ -769,14 +828,41 @@
             resourcesTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
+        // "Find Your Place Today" hero button: show a locations dropdown instead of jumping straight down
+        var findPlaceBtn = document.getElementById('findPlaceBtn');
+        var locationsMenu = document.getElementById('locationsMenu');
+
+        function closeLocationsMenu() {
+            locationsMenu.classList.remove('open');
+            findPlaceBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        findPlaceBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var isOpen = locationsMenu.classList.toggle('open');
+            findPlaceBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Picking a location closes the menu and lets the link scroll down to the form
+        locationsMenu.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () { closeLocationsMenu(); });
+        });
+
         document.addEventListener('click', function (e) {
             if (!resourcesMenu.contains(e.target) && e.target !== resourcesTrigger) {
                 closeResourcesMenu();
             }
+            if (!locationsMenu.contains(e.target) && e.target !== findPlaceBtn) {
+                closeLocationsMenu();
+            }
         });
 
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeResourcesMenu();
+            if (e.key === 'Escape') {
+                closeResourcesMenu();
+                closeLocationsMenu();
+            }
         });
 
         // Form handling with basic validation
@@ -802,9 +888,30 @@
 
             if (!valid) return;
 
-            // To receive submissions by email, connect a free form service:
-            // 1. Sign up at formspree.io and create a form
-            // 2. Replace the line below with: fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: new FormData(form) })
+            // Send the lead to Google Sheets via an Apps Script Web App.
+            // Set LEADS_ENDPOINT to the deployment URL once it's created, and
+            // make LEADS_SECRET match the SHARED_SECRET in that script.
+            var LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz0O2ss6zXcQOqEurnwY_eCqBxvqwIfdKEIKTj3Eqq8gbAlaF1o_6Zezxt4PC0bI_MnFg/exec';
+            var LEADS_SECRET = 'KrcGdqr9EZsjKOueOh7txIO1nxEGelv_';
+
+            if (LEADS_ENDPOINT.indexOf('PASTE_YOUR') === -1) {
+                fetch(LEADS_ENDPOINT, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({
+                        secret: LEADS_SECRET,
+                        fullName: name.value.trim(),
+                        phone: phone.value.trim(),
+                        email: email.value.trim(),
+                        immediate: form.querySelector('[name="immediate"]').checked,
+                        referral: form.querySelector('[name="referral"]').checked,
+                        providerReferral: form.querySelector('[name="providerReferral"]').checked,
+                        source: 'Homepage form'
+                    })
+                }).catch(function () { /* fail silently -- the visitor still sees the success message below */ });
+            }
+
             success.style.display = 'block';
             form.reset();
             success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
