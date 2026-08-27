@@ -1158,10 +1158,15 @@
             var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             var DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+            var TOUR_MIN_LEAD_DAYS = 5;
+
             var today = new Date();
             today.setHours(0, 0, 0, 0);
-            var viewYear = today.getFullYear();
-            var viewMonth = today.getMonth();
+            var minSelectableDate = new Date(today);
+            minSelectableDate.setDate(minSelectableDate.getDate() + TOUR_MIN_LEAD_DAYS);
+
+            var viewYear = minSelectableDate.getFullYear();
+            var viewMonth = minSelectableDate.getMonth();
             var selectedDate = null;
             var selectedTime = null;
 
@@ -1189,7 +1194,7 @@
                         btn.type = 'button';
                         btn.textContent = String(dayNum);
 
-                        if (cellDate < today) {
+                        if (cellDate < minSelectableDate) {
                             btn.classList.add('past');
                             btn.disabled = true;
                         } else {
@@ -1204,7 +1209,7 @@
                     })(d);
                 }
 
-                prevBtn.disabled = (viewYear === today.getFullYear() && viewMonth === today.getMonth());
+                prevBtn.disabled = (viewYear === minSelectableDate.getFullYear() && viewMonth === minSelectableDate.getMonth());
             }
 
             function selectDate(date) {
@@ -1270,8 +1275,8 @@
                 tourSuccess.style.display = 'none';
                 selectedDate = null;
                 selectedTime = null;
-                viewYear = today.getFullYear();
-                viewMonth = today.getMonth();
+                viewYear = minSelectableDate.getFullYear();
+                viewMonth = minSelectableDate.getMonth();
                 renderCalendar();
                 renderTimeSlots();
             }
