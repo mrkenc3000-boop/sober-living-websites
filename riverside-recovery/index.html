@@ -1158,7 +1158,7 @@
             var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             var DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-            var TOUR_MIN_LEAD_DAYS = 5;
+            var TOUR_MIN_LEAD_DAYS = 3;
 
             var today = new Date();
             today.setHours(0, 0, 0, 0);
@@ -1312,7 +1312,7 @@
 
                 // Set TOUR_ENDPOINT to the tour Apps Script deployment URL once it's
                 // created, and make TOUR_SECRET match the SHARED_SECRET in that script.
-                var TOUR_ENDPOINT = 'PASTE_YOUR_TOUR_DEPLOYMENT_URL_HERE';
+                var TOUR_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzQ29a9yBtLC25DNG2nxi6iCaSBtlfrhxtSwY780V0u6QQ7_paX3Vyq9p6polL3xIh_/exec';
                 var TOUR_SECRET = 'NpB9KRDAtL_z_3XzHEashccNSJpW9sFN';
 
                 if (TOUR_ENDPOINT.indexOf('PASTE_YOUR') === -1) {
