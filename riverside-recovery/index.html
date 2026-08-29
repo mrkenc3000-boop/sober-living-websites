@@ -526,6 +526,70 @@
         }
         .tour-form .btn-submit { width: 100%; text-align: center; }
 
+        /* ===== Privacy Policy / Terms of Service modal ===== */
+        .info-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(23,44,53,0.55);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+        }
+        .info-modal-overlay.open { display: flex; }
+        .info-modal {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+            width: 100%;
+            max-width: 640px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 2rem 2rem 2.25rem;
+            position: relative;
+        }
+        .info-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.1rem;
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            line-height: 1;
+            color: var(--gray);
+            cursor: pointer;
+            padding: 0.2rem;
+        }
+        .info-modal-close:hover { color: var(--ink); }
+        .info-modal h3 {
+            color: var(--teal-dark);
+            font-size: 1.4rem;
+            padding-right: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .info-modal .info-modal-updated {
+            color: var(--gray);
+            font-size: 0.82rem;
+            margin-bottom: 1.25rem;
+        }
+        .info-modal h4 {
+            color: var(--teal-dark);
+            font-size: 1.05rem;
+            margin: 1.5rem 0 0.6rem;
+        }
+        .info-modal h4:first-of-type { margin-top: 0; }
+        .info-modal p { margin-bottom: 0.9rem; color: var(--ink); font-size: 0.95rem; }
+        .info-modal ul { margin: 0 0 0.9rem 1.3rem; color: var(--ink); font-size: 0.95rem; }
+        .info-modal li { margin-bottom: 0.4rem; }
+        .info-modal a { color: var(--teal); }
+        .info-modal .info-modal-callout {
+            background: var(--bg-light);
+            border-left: 4px solid var(--orange);
+            padding: 0.85rem 1.1rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
 
         .form-note {
             margin-top: 1rem;
@@ -745,7 +809,7 @@
             <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#availability">Admissions</a></li>
-                <li><a href="mailto:mrkenc3000@gmail.com">Contact</a></li>
+                <li><a href="mailto:info@qualitycohousing.com">Contact</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="tel:+15053696404" class="btn-call" id="callNowBtn">Call Now</a></li>
             </ul>
@@ -868,6 +932,100 @@
         </div>
     </div>
 
+    <!-- ===== Privacy Policy modal ===== -->
+    <div class="info-modal-overlay" id="privacyModalOverlay">
+        <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+            <button type="button" class="info-modal-close" id="privacyModalClose" aria-label="Close">&times;</button>
+            <h3 id="privacyModalTitle">Privacy Policy</h3>
+            <div class="info-modal-updated">Last updated: August 29, 2026</div>
+
+            <p>Quality CoHousing ("we," "us," or "our") respects your privacy. This policy explains what information we collect through this website, how we use it, and the choices you have.</p>
+
+            <h4>Information We Collect</h4>
+            <p>When you use the forms on this website, we collect the information you choose to provide, which may include:</p>
+            <ul>
+                <li>Your full name, phone number, and email address</li>
+                <li>Whether you need immediate placement, are inquiring as a family member, or are referring on behalf of a treatment provider or hospital</li>
+                <li>Your preferred date and time if you request a tour</li>
+            </ul>
+            <p>We do not knowingly collect sensitive health information through these forms. If you choose to share health-related details with us by phone or email as part of arranging your care, we use that information only to help coordinate your placement.</p>
+
+            <h4>How We Use Your Information</h4>
+            <p>We use the information you submit to:</p>
+            <ul>
+                <li>Respond to your inquiry and follow up by phone, text, or email</li>
+                <li>Schedule and confirm tours</li>
+                <li>Evaluate availability and appropriate placement</li>
+                <li>Maintain records of inquiries for our own administrative purposes</li>
+            </ul>
+
+            <h4>How We Store and Share Your Information</h4>
+            <p>Information submitted through our website forms is transmitted securely to our internal records system for our team to review and respond to. We do not sell your personal information, and we do not share it with third parties for their own marketing purposes.</p>
+            <p>We may share information with a referring hospital, treatment provider, or family member who is already involved in coordinating your care, or when required by law, such as in response to a valid legal request.</p>
+
+            <h4>Data Retention</h4>
+            <p>We retain the information you submit for as long as reasonably necessary to respond to your inquiry, coordinate placement, and maintain our business records, unless you ask us to delete it sooner.</p>
+
+            <h4>Your Choices</h4>
+            <p>You can ask us at any time to access, correct, or delete the information you've submitted to us by emailing <a href="mailto:info@qualitycohousing.com">info@qualitycohousing.com</a> or calling <a href="tel:+15053696404">(505) 369-6404</a>.</p>
+
+            <h4>Children's Privacy</h4>
+            <p>Our services are intended for adults. We do not knowingly collect personal information from children through this website.</p>
+
+            <h4>Security</h4>
+            <p>We take reasonable steps to protect the information you share with us. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security.</p>
+
+            <h4>Changes to This Policy</h4>
+            <p>We may update this policy from time to time. Any changes will be posted here with an updated "Last updated" date.</p>
+
+            <h4>Contact Us</h4>
+            <p>If you have questions about this policy, reach us at <a href="mailto:info@qualitycohousing.com">info@qualitycohousing.com</a> or <a href="tel:+15053696404">(505) 369-6404</a>.</p>
+        </div>
+    </div>
+
+    <!-- ===== Terms of Service modal ===== -->
+    <div class="info-modal-overlay" id="termsModalOverlay">
+        <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
+            <button type="button" class="info-modal-close" id="termsModalClose" aria-label="Close">&times;</button>
+            <h3 id="termsModalTitle">Terms of Service</h3>
+            <div class="info-modal-updated">Last updated: August 29, 2026</div>
+
+            <p>These terms govern your use of the Quality CoHousing website. By using this site or submitting a form on it, you agree to these terms.</p>
+
+            <div class="info-modal-callout">If you are experiencing a medical or mental health emergency, call 911 or go to your nearest emergency room. This website is not a substitute for emergency or medical care.</div>
+
+            <h4>Use of This Website</h4>
+            <p>This website is provided to share information about Quality CoHousing and to let visitors submit inquiries and request tours. You agree to provide accurate information when using our forms and not to use the website for any unlawful or abusive purpose.</p>
+
+            <h4>No Guarantee of Availability or Admission</h4>
+            <p>Submitting an inquiry or scheduling a tour does not guarantee bed availability, admission, or acceptance into any program. All placements are subject to an assessment, availability at the time, and our house guidelines.</p>
+
+            <h4>Not Medical or Legal Advice</h4>
+            <p>Content on this website is provided for general informational purposes only and does not constitute medical, psychological, or legal advice. You should consult a qualified professional regarding your specific situation.</p>
+
+            <h4>Eligibility</h4>
+            <p>This website and our services are intended for adults 18 years of age or older who are seeking housing or recovery support for themselves, or who are inquiring on behalf of another adult.</p>
+
+            <h4>Intellectual Property</h4>
+            <p>The text, graphics, logos, and branding on this website belong to Quality CoHousing and may not be copied or used without our written permission.</p>
+
+            <h4>Third-Party Links</h4>
+            <p>This website may link to third-party websites or services. We are not responsible for the content, accuracy, or privacy practices of any third-party site.</p>
+
+            <h4>Limitation of Liability</h4>
+            <p>This website and its content are provided "as is" without warranties of any kind. To the fullest extent permitted by law, Quality CoHousing is not liable for any indirect, incidental, or consequential damages arising from your use of this website.</p>
+
+            <h4>Governing Law</h4>
+            <p>These terms are governed by the laws of the State of California, without regard to its conflict-of-law principles.</p>
+
+            <h4>Changes to These Terms</h4>
+            <p>We may update these terms from time to time. Any changes will be posted here with an updated "Last updated" date.</p>
+
+            <h4>Contact Us</h4>
+            <p>Questions about these terms can be sent to <a href="mailto:info@qualitycohousing.com">info@qualitycohousing.com</a> or <a href="tel:+15053696404">(505) 369-6404</a>.</p>
+        </div>
+    </div>
+
     <!-- ===== Why Us ===== -->
     <section class="why" id="programs">
         <div class="why-inner">
@@ -930,9 +1088,9 @@
     <footer class="footer">
         <div class="footer-inner">
             <div>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:mrkenc3000@gmail.com">Contact</a>
+                <a href="privacy.html" id="privacyLinkBtn">Privacy Policy</a>
+                <a href="terms.html" id="termsLinkBtn">Terms of Service</a>
+                <a href="mailto:info@qualitycohousing.com">Contact</a>
             </div>
             <div class="footer-copy">
                 <div>&copy; 2026 Quality CoHousing</div>
@@ -1251,6 +1409,36 @@
                 tourSuccess.style.display = 'block';
                 tourForm.reset();
             });
+        })();
+
+        // ===== Privacy Policy / Terms of Service modals =====
+        // The footer links still point to real pages (privacy.html / terms.html)
+        // as a fallback, but when JS is available we show the same content
+        // right here in a modal instead of navigating away.
+        (function () {
+            function wireModal(linkId, overlayId, closeId) {
+                var link = document.getElementById(linkId);
+                var overlay = document.getElementById(overlayId);
+                var closeBtn = document.getElementById(closeId);
+                if (!link || !overlay || !closeBtn) return;
+
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    overlay.classList.add('open');
+                });
+                closeBtn.addEventListener('click', function () {
+                    overlay.classList.remove('open');
+                });
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) overlay.classList.remove('open');
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') overlay.classList.remove('open');
+                });
+            }
+
+            wireModal('privacyLinkBtn', 'privacyModalOverlay', 'privacyModalClose');
+            wireModal('termsLinkBtn', 'termsModalOverlay', 'termsModalClose');
         })();
 
     </script>
