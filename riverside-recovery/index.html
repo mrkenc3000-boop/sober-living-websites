@@ -174,46 +174,6 @@
             flex-wrap: wrap;
         }
 
-        .cta-dropdown { position: relative; }
-
-        .locations-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 0.6rem;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 14px 32px rgba(0,0,0,0.28);
-            padding: 0.5rem;
-            min-width: 220px;
-            z-index: 30;
-            text-align: left;
-        }
-
-        .locations-menu.open { display: block; }
-
-        .locations-menu-label {
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gray);
-            padding: 0.5rem 0.8rem 0.3rem;
-        }
-
-        .locations-menu a {
-            display: block;
-            padding: 0.65rem 0.8rem;
-            border-radius: 6px;
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .locations-menu a:hover { background: var(--bg-light); color: var(--teal-dark); }
-
         .btn {
             display: inline-block;
             padding: 0.85rem 1.8rem;
@@ -566,6 +526,7 @@
         }
         .tour-form .btn-submit { width: 100%; text-align: center; }
 
+
         .form-note {
             margin-top: 1rem;
             font-size: 0.78rem;
@@ -797,15 +758,7 @@
             <h1>Begin Your Journey Today</h1>
             <p>Safe, structured shared housing — with 24/7 support and a community that truly cares.</p>
             <div class="hero-cta">
-                <div class="cta-dropdown">
-                    <a href="#availability" class="btn btn-primary" id="findPlaceBtn" aria-haspopup="true" aria-expanded="false" aria-controls="locationsMenu">Find Your Place Today</a>
-                    <div class="locations-menu" id="locationsMenu" role="menu">
-                        <div class="locations-menu-label">Available Locations</div>
-                        <a href="#availability" role="menuitem" data-location="Riverside">Riverside Location</a>
-                        <a href="#availability" role="menuitem" data-location="San Bernardino">San Bernardino Location</a>
-                        <a href="#availability" role="menuitem" data-location="Redlands">Redlands Location</a>
-                    </div>
-                </div>
+                <a href="#availability" class="btn btn-primary">Find Your Place Today</a>
                 <a href="#programs" class="btn btn-outline">Learn More</a>
             </div>
         </div>
@@ -838,7 +791,6 @@
 
             <div id="contact">
                 <form class="lead-form" id="leadForm" novalidate>
-                    <input type="hidden" id="selectedLocation" name="selectedLocation" value="">
                     <div class="field">
                         <label for="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" autocomplete="name" required>
@@ -895,15 +847,6 @@
             <form class="tour-form" id="tourForm" style="display:none;" novalidate>
                 <button type="button" class="tour-back" id="tourBackBtn">&larr; Change date/time</button>
                 <div class="tour-selected-summary" id="tourSelectedSummary"></div>
-                <div class="field">
-                    <label for="tourLocation">Location</label>
-                    <select id="tourLocation" name="tourLocation" required>
-                        <option value="" disabled selected>Choose a location</option>
-                        <option value="Riverside">Riverside Location</option>
-                        <option value="San Bernardino">San Bernardino Location</option>
-                        <option value="Redlands">Redlands Location</option>
-                    </select>
-                </div>
                 <div class="field">
                     <label for="tourName">Full Name</label>
                     <input type="text" id="tourName" name="tourName" autocomplete="name" required>
@@ -987,8 +930,8 @@
     <footer class="footer">
         <div class="footer-inner">
             <div>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
                 <a href="mailto:mrkenc3000@gmail.com">Contact</a>
             </div>
             <div class="footer-copy">
@@ -1046,46 +989,15 @@
             resourcesTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
-        // "Find Your Place Today" hero button: show a locations dropdown instead of jumping straight down
-        var findPlaceBtn = document.getElementById('findPlaceBtn');
-        var locationsMenu = document.getElementById('locationsMenu');
-
-        function closeLocationsMenu() {
-            locationsMenu.classList.remove('open');
-            findPlaceBtn.setAttribute('aria-expanded', 'false');
-        }
-
-        findPlaceBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            var isOpen = locationsMenu.classList.toggle('open');
-            findPlaceBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        // Picking a location records which one, closes the menu, and lets the
-        // link scroll down to the form -- the choice rides along with the
-        // form submission into the Location column in Google Sheets.
-        var selectedLocationField = document.getElementById('selectedLocation');
-        locationsMenu.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-                selectedLocationField.value = a.getAttribute('data-location') || '';
-                closeLocationsMenu();
-            });
-        });
-
         document.addEventListener('click', function (e) {
             if (!resourcesMenu.contains(e.target) && e.target !== resourcesTrigger) {
                 closeResourcesMenu();
-            }
-            if (!locationsMenu.contains(e.target) && e.target !== findPlaceBtn) {
-                closeLocationsMenu();
             }
         });
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeResourcesMenu();
-                closeLocationsMenu();
             }
         });
 
@@ -1131,7 +1043,6 @@
                         immediate: form.querySelector('[name="immediate"]').checked,
                         referral: form.querySelector('[name="referral"]').checked,
                         providerReferral: form.querySelector('[name="providerReferral"]').checked,
-                        location: selectedLocationField.value || 'Not specified',
                         source: 'Homepage form'
                     })
                 }).catch(function () { /* fail silently -- the visitor still sees the success message below */ });
@@ -1300,12 +1211,11 @@
 
             tourForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                var location = document.getElementById('tourLocation');
                 var name = document.getElementById('tourName');
                 var phone = document.getElementById('tourPhone');
                 var email = document.getElementById('tourEmail');
                 var valid = true;
-                [location, name, phone, email].forEach(function (f) {
+                [name, phone, email].forEach(function (f) {
                     if (!f.value.trim()) {
                         f.style.borderBottomColor = '#e74c3c';
                         valid = false;
@@ -1330,7 +1240,6 @@
                             fullName: name.value.trim(),
                             phone: phone.value.trim(),
                             email: email.value.trim(),
-                            location: location.value || 'Not specified',
                             tourDate: selectedDate ? (selectedDate.getFullYear() + '-' + pad2(selectedDate.getMonth() + 1) + '-' + pad2(selectedDate.getDate())) : '',
                             tourTime: selectedTime || '',
                             source: 'Homepage tour booking'
@@ -1343,6 +1252,7 @@
                 tourForm.reset();
             });
         })();
+
     </script>
 </body>
 </html>
