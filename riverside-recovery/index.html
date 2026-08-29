@@ -42,6 +42,8 @@
             --sage: #a8c8b8;
             --orange: #e8853d;
             --orange-dark: #c96b28;
+            --pop: #e0b03e;
+            --pop-dark: #c79425;
             --ink: #2c3e50;
             --gray: #6b7c8a;
             --bg-light: #f6f9f8;
@@ -88,8 +90,9 @@
         .brand-name { line-height: 1.15; text-align: center; }
         .brand-name strong { display: block; font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; }
         .brand-name strong .b-1 { color: var(--teal-dark); }
+        .brand-name strong .b-co { color: var(--pop); }
         .brand-name strong .b-2 { color: var(--orange); }
-        .brand-rule { display: block; width: 44px; height: 2px; background: var(--orange); margin: 4px auto 3px; }
+        .brand-rule { display: block; width: 100%; height: 2px; margin: 4px auto 3px; background: linear-gradient(to right, var(--teal-dark) 0%, var(--teal-dark) 38.77%, var(--pop) 38.77%, var(--pop) 54.12%, var(--orange) 54.12%, var(--orange) 100%); }
         .brand-tagline { display: block; color: var(--gray); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
         .nav-links {
@@ -229,11 +232,11 @@
         .btn-primary:hover { background: var(--orange-dark); }
 
         .btn-outline {
-            background: transparent;
+            background: var(--pop);
             color: white;
-            border: 2px solid rgba(255,255,255,0.85);
+            border: none;
         }
-        .btn-outline:hover { background: rgba(255,255,255,0.15); }
+        .btn-outline:hover { background: var(--pop-dark); }
 
         /* Angled divider under hero */
         .hero::after {
@@ -727,6 +730,7 @@
 
         .footer a { color: rgba(255,255,255,0.85); text-decoration: none; margin-right: 1.25rem; }
         .footer a:hover { color: white; text-decoration: underline; }
+        .footer-copy { text-align: right; }
 
         /* ---------- Responsive ---------- */
         @media (max-width: 860px) {
@@ -762,7 +766,6 @@
 
         @media (max-width: 480px) {
             .why-grid { grid-template-columns: 1fr; }
-            .brand-tagline { display: none; }
         }
     </style>
 </head>
@@ -773,9 +776,9 @@
         <div class="nav-inner">
             <a href="#" class="brand">
                 <div class="brand-name">
-                    <strong><span class="b-1">Quality</span><span class="b-2">Housing</span></strong>
+                    <strong><span class="b-1">Quality</span><span class="b-co">Co</span><span class="b-2">Housing</span></strong>
                     <span class="brand-rule"></span>
-                    <span class="brand-tagline">Co-Living</span>
+                    <span class="brand-tagline">Structured Co-Living</span>
                 </div>
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
@@ -827,7 +830,7 @@
                 </div>
                 <div class="badges" aria-hidden="true">
                     <div class="badge">24/7<br>MONITORING</div>
-                    <div class="badge">DRUG<br>FREE</div>
+                    <div class="badge" style="font-size: 0.6rem;">ALCOHOL &amp;<br>DRUG FREE</div>
                     <div class="badge">PEER<br>SUPPORT</div>
                     <div class="badge">JOB<br>HELP</div>
                 </div>
@@ -988,7 +991,9 @@
                 <a href="#">Terms of Service</a>
                 <a href="mailto:mrkenc3000@gmail.com">Contact</a>
             </div>
-            <div>&copy; 2026 Quality Housing</div>
+            <div class="footer-copy">
+                <div>&copy; 2026 Quality CoHousing</div>
+            </div>
         </div>
     </footer>
 
